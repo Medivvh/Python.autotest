@@ -73,10 +73,10 @@ wait_refund_count = json['data'][2]['wait_refund']
 refunded_count = json['data'][2]['refunded']
 count = json['data'][2]['count']
 
+#Проверить логику 'Tim'
 
-
-assert (completed_count+wait_refund_count+refunded_count)//2 <= count//2 or refunded_count <= completed_count and not wait_refund_count > refunded_count
-
+assert (completed_count+wait_refund_count+refunded_count) == count and (completed_count) >= count//2 or refunded_count <= completed_count and not wait_refund_count > refunded_count
+#
 # order_1 = json['data'][0]['count']
 # order_2 = json['data'][1]['count']
 # order_3 = json['data'][2]['count']
@@ -115,7 +115,6 @@ orders = {'orders_id': id_of_orders,
           'orders_list': list_of_orders,
           }
 operator.show_account()
-
 id_of_orders += ['326b23a1-e6ab-4b4a-84a1-a3ecb33afc97']
 print(orders)
 print()
