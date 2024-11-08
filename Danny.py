@@ -1,7 +1,5 @@
 from datetime import datetime
 
-from wheel.metadata import yield_lines
-
 json = {
     "state": 0,
     "data": [
