@@ -112,12 +112,18 @@ for i in range(len(json['data'])):
 
 #сделать цикл для заказов
 
-completed_orders = json['data'][0]['completed'] + json['data'][1]['completed'] + json['data'][2]['completed']
-waiting_orders = json['data'][0]['wait_refund'] + json['data'][1]['wait_refund'] + json['data'][2]['wait_refund']
-refounded_orders = json['data'][0]['refunded'] + json['data'][1]['refunded'] + json['data'][2]['refunded']
+list_of_orders = {'ComplitedOrders': [] , 'WaitingOrders': [], 'RefoundedOrders': [] }
+for p in range(len(json['data'])):
+    completed_orders = json['data'][p]['completed']
+    list_of_orders['ComplitedOrders'].append(completed_orders)
+    waiting_orders = json['data'][p]['wait_refund']
+    list_of_orders['WaitingOrders'].append(waiting_orders)
+    refounded_orders = json['data'][p]['refunded']
+    list_of_orders['RefoundedOrders'].append(refounded_orders)
 
-list_of_orders = {'ComplitedOrders': completed_orders, 'WaitingOrders': waiting_orders,
-                  'RefoundedOrders': refounded_orders}
+# сделать сумму значений
+
+print(list_of_orders)
 
 orders = {'orders_id': id_of_orders,
           'orders_list': list_of_orders,
