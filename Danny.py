@@ -39,19 +39,6 @@ json = {
     ]
 }
 
-data_obj_inf = {}
-
-for i in range(len(json['data'])):
-    data_obj_inf[i] = {'completed': json['data'][i]['completed'], 'wait_refund': json['data'][i]['wait_refund'],
-                       'refunded': json['data'][i]['refunded']}
-
-
-# assert 1==1
-# count - кол-во услуг всего в заказе
-# completed/wait_refund/refunded - статусы обработанных услуг в конкретном заказе.
-# Если значение 0 - значит нет услуг в этом заказе подходящее под этот статус-то есть
-# услуга может быть выполненной, возвращенной или ожидающей возврата`
-# delay - кол-во часов между выполнениями услуг
 
 class Account:
     def __init__(self, name, mail):
@@ -61,16 +48,13 @@ class Account:
     def show_account(self):
         print(f'name: {self._name}, mail: {self._mail}')
 
-
 operator = Account('Danil', 'DVW@mail.ru')
 
 '''#1 Надо убедиться, что заказы вообще есть в ответе от сервера'''
 
-assert len(json['data']) is not None and len(json['data']) > 0, f'Заказов нет'
+assert json['data'] is not None and len(json['data']) > 0, f'Заказов нет'
 
 '''#2 Надо убедиться, что время выполнение первого и второго заказов не превышает 6 часов'''
-
-# импорт библиотеки и цикл (с) Tim
 
 result_time = []
 def count_by(json):
@@ -93,11 +77,10 @@ wait_refund_count = json['data'][2]['wait_refund']
 refunded_count = json['data'][2]['refunded']
 count = json['data'][2]['count']
 
-assert (completed_count + wait_refund_count + refunded_count == count and completed_count >= count / 2) or (
-        refunded_count <= completed_count and not wait_refund_count > refunded_count)
+assert ((completed_count + wait_refund_count + refunded_count == count and completed_count >= count / 2)
+        or (refunded_count <= completed_count and not wait_refund_count > refunded_count))
 
 '''Подготовь словарь, который будет содержать:
-
 1. массив айдишников заказов
 2. объект, который будет содержать в себе инфу о том, сколько всего услуг выполненных, возвращенных и ожидающих возврат 
 3. Так же в самом начале программы сделай переменную под названием operator и положи в нее свою почту и имя. Эта информация должна быть в отчете. (мало ли кто другой воспользуется программой, чтобы ему было просто в самом начале задать свои почту и имя и они были в отчете)
@@ -112,23 +95,21 @@ for i in range(len(json['data'])):
 
 #сделать цикл для заказов
 
-list_of_orders = {'ComplitedOrders': [] , 'WaitingOrders': [], 'RefoundedOrders': [] }
-for p in range(len(json['data'])):
-    completed_orders = json['data'][p]['completed']
-    list_of_orders['ComplitedOrders'].append(completed_orders)
-    waiting_orders = json['data'][p]['wait_refund']
-    list_of_orders['WaitingOrders'].append(waiting_orders)
-    refounded_orders = json['data'][p]['refunded']
-    list_of_orders['RefoundedOrders'].append(refounded_orders)
+list_of_orders = {
+    'completed': 0,
+    'wait_refund': 0,
+    'refunded': 0
+}
 
-# сделать сумму значений
-
-print(list_of_orders)
+for key in list_of_orders.keys():
+    for obj in json['data']:
+        list_of_orders[key] += obj[key]
 
 orders = {'orders_id': id_of_orders,
           'orders_list': list_of_orders,
           }
+
 operator.show_account()
 id_of_orders += ['326b23a1-e6ab-4b4a-84a1-a3ecb33afc97']
+
 print(orders)
-print()
