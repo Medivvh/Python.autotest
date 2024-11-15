@@ -1,4 +1,3 @@
-from idlelib.pyparse import trans
 from logging import exception
 
 '''1.Определение базового класса BankAccount:'''
@@ -9,11 +8,11 @@ class BankAccount:
         self.__balance = balance
 
     def deposit(self, amount):
-            if amount > 0:
-                self.__balance += amount
-                print(f'Депозит увеличен на {amount}')
-            else:
-                 print(f'недопустимая сумма депозита {amount}')
+        if amount > 0:
+            self.__balance += amount
+            print(f'Депозит на сумму {amount}, произошёл успешно')
+        else:
+             print(f'недопустимая сумма депозита {amount}')
 
     def withdraw(self,amount):
         try:
@@ -22,7 +21,7 @@ class BankAccount:
             self.__balance += amount
             print(f'Снятие {amount} произошло успешно')
         except ValueError as error:
-            print(error)
+            return (error)
 
     def get_balance(self):
         print(f'Баланс владельца {account.owner} = {self.__balance}')
@@ -33,10 +32,12 @@ class BankAccount:
 class SavingsAccount(BankAccount):
     def __init__(self, owner,balance = 0):
         super().__init__(owner,balance)
+        self._BankAccount__balance = 0 #узнать поподробнее о строке
 
     def apply_interest(self):
-        interest_rate = self._BankAccount__balance + (self._BankAccount__balance * 0.05)
-        print(f'После начисления процента по счету, Баланс = {interest_rate}')
+        self._BankAccount__balance += self._BankAccount__balance * 0.05
+        print(f'После начисления процента по счету, Баланс = {self._BankAccount__balance}')
+
 
 '''3. Cоздание класса CheckingAccount'''
 
@@ -51,7 +52,8 @@ class CheckingAccount(BankAccount):
 
 account = SavingsAccount('Otis')
 
-transactions = (500,-100)
+
+transactions = (500,-100, 700, 800, 1300)
 
 for transaction in (transactions):
     if transaction > 0:
@@ -59,7 +61,5 @@ for transaction in (transactions):
     else:
         account.withdraw(transaction)
 
-
-account.get_balance()
-
 account.apply_interest()
+account.get_balance()

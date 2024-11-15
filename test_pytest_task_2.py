@@ -1,15 +1,14 @@
-from task2 import SavingsAccount
+from unittest import removeResult
+from task2 import SavingsAccount, transactions, transaction
 
-acc_primer = SavingsAccount('Tom')
-
+account = SavingsAccount('Tom')
+transactions = ()
 def test_add():
-    transactions = (-600,-900)
-    for transaction in (transactions):
-        if transaction > 0:
-            acc_primer.deposit(transaction)
-        else:
-            acc_primer.withdraw(transaction)
+    assert
 
-acc_primer.get_balance()
 
-acc_primer.apply_interest()
+# assert removeResult(account.get_balance()) == 'Сумма снятия больше баланса', f'Снятие средств больше баланса на счете'
+
+account.apply_interest()
+account.get_balance()
+
