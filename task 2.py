@@ -4,7 +4,7 @@ from logging import exception
 '''1.Определение базового класса BankAccount:'''
 
 class BankAccount:
-    def __init__(self,owner,balance=0):
+    def __init__(self,owner,balance = 0):
         self.owner = owner
         self.__balance = balance
 
@@ -28,19 +28,20 @@ class BankAccount:
         print(f'Баланс владельца {account.owner} = {self.__balance}')
 
 
-'''Шаг 2: cоздание класса SavingsAccount (наследуется от BankAccount):'''
+'''2. Cоздание класса SavingsAccount (наследуется от BankAccount):'''
 
 class SavingsAccount(BankAccount):
-    def __init__(self, owner,balance=0):
+    def __init__(self, owner,balance = 0):
         super().__init__(owner,balance)
 
     def apply_interest(self):
         interest_rate = self._BankAccount__balance + (self._BankAccount__balance * 0.05)
         print(f'После начисления процента по счету, Баланс = {interest_rate}')
 
+'''3. Cоздание класса CheckingAccount'''
 
 class CheckingAccount(BankAccount):
-    def __init__(self, owner,balance=0):
+    def __init__(self, owner,balance = 0):
         super().__init__(owner,balance)
 
     def withdraw(self,amount):
