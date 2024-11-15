@@ -21,7 +21,7 @@ class BankAccount:
             self.__balance += amount
             print(f'Снятие {amount} произошло успешно')
         except ValueError as error:
-            return (error)
+            print(error)
 
     def get_balance(self):
         print(f'Баланс владельца {account.owner} = {self.__balance}')
@@ -50,16 +50,16 @@ class CheckingAccount(BankAccount):
         print(f'Снятие {amount} произошло успешно')
 
 
-account = SavingsAccount('Otis')
+account = SavingsAccount('Andrey')
 
 
-transactions = (500,-100, 700, 800, 1300)
+transactions = (-5000,1500,-1200,2000)
 
 for transaction in (transactions):
     if transaction > 0:
         account.deposit(transaction)
     else:
         account.withdraw(transaction)
-
+account.get_balance()
 account.apply_interest()
 account.get_balance()
