@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="" />
+    <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_pytest_task_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_pytest_task_2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +53,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests in test_pytest_task_2.py.executor": "Run",
     "Python.Danny.executor": "Run",
     "Python.task 2.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
