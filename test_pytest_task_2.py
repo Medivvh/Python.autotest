@@ -1,24 +1,19 @@
-from unittest import removeResult
+import random
+import pytest
+from task2 import SavingsAccount
 
-from task2 import SavingsAccount, transactions, transaction
+def test_add_positive():
+    account = SavingsAccount('Andrey', 0)
+    account.deposit(random.randint(1, 1000))
+    assert account._BankAccount__balance > 0
 
-account = SavingsAccount('Tom')
+def test_add_negative():
+    account = SavingsAccount('Andrey', 0)
+    with pytest.raises(ValueError):
+        price = random.randint(1, 1000)
+        account.withdraw(price)
 
-
-
-def test_add():
-    transactions = (800, -800, 0, 600, -6000)
-    for transaction in (transactions):
-        if transaction > 0:
-            account.deposit(transaction)
-            assert account._BankAccount__balance > 0, ValueError
-        elif transaction < 0:
-            account.withdraw(transaction)
-            assert account._BankAccount__balance >= 0, ValueError
-
-        else:
-            print(f'Баланс не изменился, сумма транзакции = {transaction}')
-
-
-account.apply_interest()
-account.get_balance()
+def test_add_negative_zero():
+    account = SavingsAccount('Andrey', 0)
+    with pytest.raises(ValueError):
+        account.withdraw(0)

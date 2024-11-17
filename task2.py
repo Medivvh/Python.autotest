@@ -14,14 +14,16 @@ class BankAccount:
         else:
              print(f'недопустимая сумма депозита {amount}')
 
-    def withdraw(self,amount):
-        try:
-            if -amount > account.__balance:
-                raise ValueError('Сумма снятия больше баланса')
-            self.__balance += amount
-            print(f'Снятие {amount} произошло успешно')
-        except ValueError as error:
-            print(error)
+
+    def withdraw(self, amount):
+        if amount > 0:
+            if amount <= self.__balance:
+                self.__balance -= amount
+                print(f'Снятие {amount} произошло успешно')
+            else:
+                print('Недостаточно средств')
+        else:
+            print('Невозможно снять отрицательную сумму либо 0')
 
     def get_balance(self):
         print(f'Баланс владельца {account.owner} = {self.__balance}')
@@ -42,11 +44,11 @@ class SavingsAccount(BankAccount):
 '''3. Cоздание класса CheckingAccount'''
 
 class CheckingAccount(BankAccount):
-    def __init__(self, owner,balance = 0):
-        super().__init__(owner,balance)
+    def init(self, owner, balance):
+        super().__init__(owner, balance)
 
-    def withdraw(self,amount):
-        self.__balance += amount
+    def withdraw(self, amount):
+        self._BankAccount__balance -= amount
         print(f'Снятие {amount} произошло успешно')
 
 
@@ -60,6 +62,3 @@ for transaction in (transactions):
         account.deposit(transaction)
     else:
         account.withdraw(transaction)
-account.get_balance()
-account.apply_interest()
-account.get_balance()

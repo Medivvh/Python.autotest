@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/task2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_pytest_task_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_pytest_task_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +69,7 @@
       <recent name="$PROJECT_DIR$/done Task" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_pytest_task_2.test_add">
+  <component name="RunManager">
     <configuration name="Danny" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
