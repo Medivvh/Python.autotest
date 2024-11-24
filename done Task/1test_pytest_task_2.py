@@ -12,8 +12,11 @@ def test_add_negative():
     with pytest.raises(ValueError):
         price = random.randint(1, 1000)
         account.withdraw(price)
+        raise ValueError
+
 
 def test_add_negative_zero():
     account = SavingsAccount('Andrey', 0)
     with pytest.raises(ValueError):
         account.withdraw(0)
+        raise ValueError

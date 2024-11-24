@@ -44,7 +44,7 @@ class SavingsAccount(BankAccount):
 '''3. Cоздание класса CheckingAccount'''
 
 class CheckingAccount(BankAccount):
-    def init(self, owner, balance):
+    def __init__(self, owner, balance):
         super().__init__(owner, balance)
 
     def withdraw(self, amount):
