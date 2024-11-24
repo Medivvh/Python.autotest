@@ -5,11 +5,10 @@ from conftest import update_data, booking_data
 from constant import BASE_URL
 
 
-
 class TestBookings:
 
     def test_create_booking(self, booking_data, auth_session):
-        create_booking = auth_session.post(f"{BASE_URL}/booking", json = booking_data)
+        create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
         assert create_booking.status_code == 200
         booking_id = create_booking.json().get("bookingid")
         assert booking_id is not None, "ID букинга не найден в ответе"
@@ -33,12 +32,11 @@ class TestBookings:
         get_deleted_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
         assert get_deleted_booking.status_code == 404, "Букинг не был удален"
 
-
     def test_update_booking(self, booking_data, auth_session, update_data):
         create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
         booking_id = create_booking.json().get("bookingid")
         old_person = create_booking.json()['booking']
-        update_booking = auth_session.put(f"{BASE_URL}/booking/{booking_id}", json = update_data)
+        update_booking = auth_session.put(f"{BASE_URL}/booking/{booking_id}", json=update_data)
         assert update_booking.status_code == 200, 'Unavailable status code'
         new_person = update_booking.json()
         assert new_person['firstname'] != old_person['firstname'], 'Имена совпадают'
@@ -55,11 +53,27 @@ class TestBookings:
         get_deleted_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
         assert get_deleted_booking.status_code == 404, "Букинг не был удален"
 
-    def test_patch_booking(self, booking_data, auth_session): #как правильно сполиморфить?
+    def test_get_booking_by_url(self, booking_data, auth_session):
+        create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
+        booking_id = create_booking.json().get("bookingid")
+        get_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
+        booking_data_response_firstname = get_booking.json()['firstname']
+        booking_data_response_lastname = get_booking.json()['lastname']
+        get_booking_by_url = auth_session.get(
+            f'{BASE_URL}/booking?firstname={booking_data_response_firstname}&lastname={booking_data_response_lastname}')
+        assert get_booking_by_url.status_code == 200, 'Не найден созданный клиент'
+
+        delete_booking = auth_session.delete(f"{BASE_URL}/booking/{booking_id}")
+        assert delete_booking.status_code == 201, f"Ошибка при удалении букинга с ID {booking_id}"
+
+        get_deleted_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
+        assert get_deleted_booking.status_code == 404, "Букинг не был удален"
+
+    def test_patch_booking(self, booking_data, auth_session):  # как правильно сполиморфить?
         create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
         booking_id = create_booking.json().get("bookingid")
         old_person = create_booking.json()['booking']
-        update_booking = auth_session.patch(f"{BASE_URL}/booking/{booking_id}", json = {'firstname': 'IRINA'})
+        update_booking = auth_session.patch(f"{BASE_URL}/booking/{booking_id}", json={'firstname': 'IRINA'})
         assert update_booking.status_code == 200, 'Unavailable status code'
         new_person = update_booking.json()
         assert new_person['firstname'] != old_person['firstname'], 'Имена совпадают'
@@ -93,18 +107,20 @@ class TestBookings:
             reduce(reducer, set(), list_of_booking_ids)
         except ValueError:
             has_duplicates = True
+            assert has_duplicates == True, f'Найдены дубликаты'
         else:
             has_duplicates = False
+            assert has_duplicates == False, f'Дубликаты не обнаружены'
 
 
 class Test_negative_booking(TestBookings):
 
     def test_update_booking(self, booking_data, auth_session_with_basic, update_data):
-        create_booking = auth_session_with_basic.post(f"{BASE_URL}/booking", json = booking_data)
+        create_booking = auth_session_with_basic.post(f"{BASE_URL}/booking", json=booking_data)
         assert create_booking.status_code == 200, 'Unavailible status code'
         booking_id = create_booking.json().get("bookingid")
         auth_session_with_basic.headers.update({"Authorization": f"Something"})
-        update_booking = auth_session_with_basic.put(f"{BASE_URL}/booking/{booking_id}", json = update_data)
+        update_booking = auth_session_with_basic.put(f"{BASE_URL}/booking/{booking_id}", json=update_data)
         assert update_booking.status_code == 403, 'Нет ошибки Forbidden'
         auth_session_with_basic.headers.update({"Authorization": f"Basic YWRtaW46cGFzc3dvcmQxMjM="})
         delete_booking = auth_session_with_basic.delete(f"{BASE_URL}/booking/{booking_id}")
@@ -113,14 +129,13 @@ class Test_negative_booking(TestBookings):
         get_deleted_booking = auth_session_with_basic.get(f"{BASE_URL}/booking/{booking_id}")
         assert get_deleted_booking.status_code == 404, "Букинг не был удален"
 
-
-    def test_update_zero(self,auth_session_with_basic,update_data,create_zero_id):
+    def test_update_zero(self, auth_session_with_basic, update_data, create_zero_id):
         get_booking = auth_session_with_basic.get(f"{BASE_URL}/booking/{create_zero_id}")
         assert get_booking.status_code == 404, 'Найден существующий id'
         update_booking = auth_session_with_basic.put(f"{BASE_URL}/booking/{create_zero_id}", json=update_data)
         assert update_booking.status_code == 405, 'Изменен несуществующий id'
 
-    def test_unavailable_data(self,auth_session,booking_data,update_wrong_data):
+    def test_unavailable_data(self, auth_session, booking_data, update_wrong_data):
         create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
         assert create_booking.status_code == 200, 'Unavailible status code'
         booking_id = create_booking.json().get("bookingid")
@@ -135,4 +150,7 @@ class Test_negative_booking(TestBookings):
             get_deleted_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
             assert get_deleted_booking.status_code == 404, "Букинг не был удален"
 
+    def test_get_booking(self, auth_session):
+        get_booking_ids = auth_session.get(f'{BASE_URL}/boоking')  # в методе используется кириллица
+        assert get_booking_ids.status_code == 404, 'В латиннице есть кириллица'
 
