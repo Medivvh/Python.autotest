@@ -85,5 +85,4 @@ def get_booking_ids(auth_session):
         assert_that(get_booking_id.status_code).is_equal_to(200) and get_booking_id is not None
         list_of_id = get_booking_id.json()
         return list_of_id
-
     return _get_booking
