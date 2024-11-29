@@ -1,9 +1,11 @@
-
 import pytest
 import requests
+import random
+
+from assertpy import assert_that
 from faker import Faker
+
 from constant import HEADERS, BASE_URL
-from requests import session
 
 faker = Faker()
 FAKER = Faker(locale='en_US')
@@ -16,41 +18,13 @@ def auth_session():
     session.headers.update(HEADERS)
 
     auth_response = session.post(f"{BASE_URL}/auth", json={"username": "admin", "password": "password123"})
-    assert auth_response.status_code == 200, "Ошибка авторизации, статус код не 200"
+    assert_that(auth_response.status_code).is_equal_to(200), "Ошибка авторизации, статус код не 200"
     token = auth_response.json().get("token")
-    assert token is not None, "Токен не найден в ответе"
+    assert_that(token).is_not_none(), "Токен не найден в ответе"
 
     session.headers.update({"Cookie": f"token={token}"})
     return session
 
-@pytest.fixture()
-def booking_data():
-    return {
-        "firstname": faker.first_name(),
-        "lastname": faker.last_name(),
-        "totalprice": faker.random_int(min=100, max=10000),
-        "depositpaid": True,
-        "bookingdates": {
-            "checkin": "2024-04-05",
-            "checkout": "2024-04-08"
-        },
-        "additionalneeds": "Breakfast"
-        }
-
-@pytest.fixture()
-def update_data():
-    return {
-        "firstname": faker.first_name(),
-        "lastname": faker.last_name(),
-        "totalprice": faker.random_int(min=100, max=10000),
-        "depositpaid": False,
-        "bookingdates": {
-            "checkin": "2024-11-20",
-            "checkout": "2024-11-20"
-        },
-        "additionalneeds": "sleep"
-
-        }
 
 @pytest.fixture(scope="session")
 def auth_session_with_basic():
@@ -59,35 +33,57 @@ def auth_session_with_basic():
     session.headers.update(HEADERS)
 
     auth_response = session.post(f"{BASE_URL}/auth", json={"username": "admin", "password": "password123"})
-    assert auth_response.status_code == 200, "Ошибка авторизации, статус код не 200"
+    assert_that(auth_response.status_code).is_equal_to(200), "Ошибка авторизации, статус код не 200"
     basic = "Basic YWRtaW46cGFzc3dvcmQxMjM="
     session.headers.update({"Authorization": f"{basic}"})
     return session
 
-@pytest.fixture(scope='session')
-def create_random_id():
-    random_id = {"bookingid": faker.random_int(min=1, max=10000)}
-    return random_id
-
 
 @pytest.fixture()
-def create_zero_id():
-    zero_client = {"bookingid": 0}
-    return zero_client
-
-@pytest.fixture()
-def update_wrong_data():
-    return {
-        "firstname": faker.first_name(),
-        "lastname": faker.last_name(),
-        "totalprice": faker.random_int(min=100, max=10000),
-        "depositpaid": "True",
-        "bookingdates": {
-            "checkin": "2024-11-20",
-            "checkout": "2024-11-20"
-        },
-        "additionalneeds": "sleep"
-
+def booking_data():
+    def _booking_data():
+        return {
+            "firstname": faker.first_name(),
+            "lastname": faker.last_name(),
+            "totalprice": faker.random_int(min=100, max=10000),
+            "depositpaid": random.choice([True, False]),
+            "bookingdates": {
+                "checkin": faker.date(),
+                "checkout": faker.date()
+            },
+            "additionalneeds": faker.pystr()
         }
 
+    return _booking_data
 
+
+@pytest.fixture()
+def booking(booking_data, auth_session):
+    booking_id = None
+
+    def _create_booking():
+        nonlocal booking_id
+        data_of_booking = booking_data()
+        create_booking = auth_session.post(f"{BASE_URL}/booking", json=data_of_booking)
+        assert_that(create_booking.status_code).is_equal_to(200)
+        booking_id = create_booking.json().get("bookingid")
+        return booking_id, data_of_booking
+
+    yield _create_booking
+
+    remove = auth_session.delete(f"{BASE_URL}/booking/{booking_id}")
+    assert_that(remove.status_code).is_equal_to(201)
+
+    get_deleted_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
+    assert_that(get_deleted_booking.status_code).is_equal_to(404)
+
+
+@pytest.fixture()
+def get_booking_ids(auth_session):
+    def _get_booking():
+        get_booking_id = auth_session.get(f'{BASE_URL}/booking')
+        assert_that(get_booking_id.status_code).is_equal_to(200) and get_booking_id is not None
+        list_of_id = get_booking_id.json()
+        return list_of_id
+
+    return _get_booking

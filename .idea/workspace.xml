@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_task_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_task_3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +63,22 @@
     "Python tests.Python tests for test_pytest_task_2.test_add_negative.executor": "Debug",
     "Python tests.Python tests for test_pytest_task_2.test_add_positive.executor": "Debug",
     "Python tests.Python tests for test_task_3.TestBookings.test_update_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3.TestBookings.test_update_zero.executor": "Run",
+    "Python tests.Python tests for test_task_3.Test_negative_booking.test_get_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3.Test_negative_booking.test_update_zero.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.test_create_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.test_get_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.test_get_booking_by_url.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.test_patch_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.TestBookings.test_update_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.Test_negative_booking.test_unavailable_data.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.Test_negative_booking.test_update_booking.executor": "Run",
+    "Python tests.Python tests for test_task_3_1.Test_negative_booking.test_update_zero.executor": "Run",
     "Python tests.Python tests in task 3.py.executor": "Run",
     "Python tests.Python tests in test_pytest_task_2.py.executor": "Run",
+    "Python tests.Python tests in test_task_3.1.py.executor": "Debug",
+    "Python tests.Python tests in test_task_3_1.py.executor": "Debug",
     "Python tests.pytest for task_3.Test_auth_booking.executor": "Run",
     "Python tests.pytest for task_3.Test_auth_booking.test_update_booking.executor": "Debug",
     "Python tests.pytest for test_pytest_task_2.test_add_negative.executor": "Run",
@@ -76,16 +92,18 @@
     "Python tests.pytest for test_task_3.Test_negative_booking.test_create_booking.executor": "Debug",
     "Python tests.pytest for test_task_3.Test_negative_booking.test_get_booking.executor": "Debug",
     "Python tests.pytest in task_3.py.executor": "Debug",
+    "Python tests.pytest in test_task_3.1.py.executor": "Debug",
     "Python tests.pytest in test_task_3.py.executor": "Debug",
     "Python.Danny.executor": "Run",
-    "Python.conftest.executor": "Debug",
+    "Python.conftest.executor": "Run",
     "Python.task 2.executor": "Run",
     "Python.task 3.executor": "Debug",
     "Python.task2.executor": "Run",
+    "Python.test_task_3.1.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -93,7 +111,7 @@
       <recent name="$PROJECT_DIR$/done Task" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_task_3.Test_negative_booking.test_get_booking">
     <configuration name="Danny" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -117,7 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_task_3.TestBookings.test_get_booking" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_task_3.TestBookings.test_update_zero" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,14 +145,12 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_task_3.TestBookings.test_get_booking&quot;" />
+      <option name="_new_target" value="&quot;test_task_3.TestBookings.test_update_zero&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_task_3.TestBookings.test_patch_booking" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_task_3.Test_negative_booking.test_get_booking" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,71 +160,63 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_task_3.TestBookings.test_patch_booking&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_task_3.Test_auth_put_booking.test_update_booking" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_task_3.Test_auth_put_booking.test_update_booking&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_task_3.Test_negative_booking.test_create_booking" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_task_3.Test_negative_booking.test_create_booking&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_task_3.Test_negative_booking.test_get_booking" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_task_3.Test_negative_booking.test_get_booking&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_task_3.Test_negative_booking.test_unavailable_data" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_3.Test_negative_booking.test_unavailable_data&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_3.Test_negative_booking.test_update_booking" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_3.Test_negative_booking.test_update_booking&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_3.Test_negative_booking.test_update_zero" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_3.Test_negative_booking.test_update_zero&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_task_3.Test_negative_booking.test_create_booking" />
-        <item itemvalue="Python tests.pytest for test_task_3.Test_negative_booking.test_get_booking" />
-        <item itemvalue="Python tests.pytest for test_task_3.TestBookings.test_get_booking" />
-        <item itemvalue="Python tests.pytest for test_task_3.TestBookings.test_patch_booking" />
-        <item itemvalue="Python tests.pytest for test_task_3.Test_auth_put_booking.test_update_booking" />
+        <item itemvalue="Python tests.Python tests for test_task_3.Test_negative_booking.test_get_booking" />
+        <item itemvalue="Python tests.Python tests for test_task_3.Test_negative_booking.test_update_zero" />
+        <item itemvalue="Python tests.Python tests for test_task_3.TestBookings.test_update_zero" />
+        <item itemvalue="Python tests.Python tests for test_task_3.Test_negative_booking.test_unavailable_data" />
+        <item itemvalue="Python tests.Python tests for test_task_3.Test_negative_booking.test_update_booking" />
       </list>
     </recent_temporary>
   </component>
