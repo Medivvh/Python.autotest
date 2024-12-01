@@ -80,7 +80,7 @@ class TestBookings:
         assert_that(new_person).is_equal_to(data_booking), 'Пользователи не равны'
 
 
-class Test_negative_booking(TestBookings):
+class Test_negative_booking:
     def test_unavailable_data(self, auth_session, booking_data, booking):
         booking_id, old_person = booking()
         data = booking_data()
@@ -100,8 +100,8 @@ class Test_negative_booking(TestBookings):
         assert_that(get_booking_id.status_code).is_equal_to(404), 'Ошибка. В латиннице есть кириллица'
 
     def test_update_zero(self, auth_session, booking_data):
-        get_booking = auth_session.get(f"{BASE_URL}/booking/{0}")
+        get_booking = auth_session.get(f"{BASE_URL}/booking/0")
         assert_that(get_booking.status_code).is_equal_to(404), 'Найден существующий id'
         update_data = booking_data()
-        update_booking = auth_session.put(f"{BASE_URL}/booking/{0}", json=update_data)
+        update_booking = auth_session.put(f"{BASE_URL}/booking/0", json=update_data)
         assert_that(update_booking.status_code).is_equal_to(405), 'Изменен несуществующий id'
