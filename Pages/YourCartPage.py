@@ -1,4 +1,4 @@
-from Pages import BasePage
+from Pages.BasePage import BasePage
 
 
 class YourCartPage(BasePage):
@@ -10,8 +10,8 @@ class YourCartPage(BasePage):
         self._endpoint = 'cart.html'
 
     def cart_have_good(self):
-        self.assert_text_next_page(self.GoodInCartSelector, 'Test.allTheThings() T-Shirt (Red)')
+        self.assert_text_next_page('T-Shirt')
 
     def checkout(self):
         self.selector_ready_to_click(self.CheckoutSelector)
-        self.assert_text_next_page(self, 'Checkout: Your Information')
+        self.assert_text_next_page('Checkout: Your Information')

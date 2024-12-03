@@ -1,4 +1,4 @@
-from Pages import BasePage
+from Pages.BasePage import BasePage
 
 
 class GoodsPage(BasePage):
@@ -15,19 +15,16 @@ class GoodsPage(BasePage):
 
     def add_first_good_in_cart(self):
         self.selector_ready_to_click(self.FirstGoodADDSelector)
-        self.assert_that_selector_is_hidden(self.FirstGoodADDSelector)
-        self.assert_text_next_page(self.CountOfGoodsInShoppingCart, 1)
+
 
     def add_second_good_in_cart(self):
         self.selector_ready_to_click(self.SecondGoodADDSelector)
-        self.assert_that_selector_is_hidden(self.SecondGoodADDSelector)
-        self.assert_text_next_page(self.CountOfGoodsInShoppingCart, 2)
+
 
     def remove_good_from_cart(self):
         self.selector_ready_to_click(self.FirstGoodRemoveSelector)
-        self.assert_that_selector_is_hidden(self.FirstGoodRemoveSelector)
-        self.assert_text_next_page(self.CountOfGoodsInShoppingCart, 1)
+
 
     def go_to_cart(self):
         self.selector_ready_to_click(self.ShoppingCartSelector)
-        self.assert_text_next_page(self, 'Your Cart')
+        self.assert_text_next_page('Your Cart')

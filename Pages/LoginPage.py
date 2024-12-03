@@ -1,4 +1,4 @@
-from Pages import BasePage
+from Pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
@@ -10,9 +10,9 @@ class LoginPage(BasePage):
         super().__init__(page)
         self._endpoint = ''
 
-    def login(self, username, password, delay):
+    def login(self, username, password):
         self.go_to_full_url()
-        self.type_text_in_selector(self.UsernameSelector, username, delay=delay)
-        self.fill_text_in_selector(self.PasswordSelector, password, delay=delay)
+        self.type_text_in_selector(self.UsernameSelector, username)
+        self.fill_text_in_selector(self.PasswordSelector, password)
         self.selector_ready_to_click(self.LoginButtonSelector)
-        self.load_to_body_have_text('Products')
+        self.assert_text_next_page('Products')

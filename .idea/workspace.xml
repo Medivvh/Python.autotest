@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Pages/BasePage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/CheckoutComplite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/CheckoutInfoPage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/CheckoutStep2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/GoodsPage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/LoginPage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/YourCartPage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task4_playwright.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task3/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task3/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/constant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playwrite/playwrite.py" beforeDir="false" />
-    </list>
+    <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +74,7 @@
     "Python tests.Python tests in test_pytest_task_2.py.executor": "Run",
     "Python tests.Python tests in test_task_3.1.py.executor": "Debug",
     "Python tests.Python tests in test_task_3_1.py.executor": "Debug",
-    "Python tests.pytest for task4_playwright.test_make_order.executor": "Run",
+    "Python tests.pytest for task4_playwright.test_make_order.executor": "Debug",
     "Python tests.pytest for task_3.Test_auth_booking.executor": "Run",
     "Python tests.pytest for task_3.Test_auth_booking.test_update_booking.executor": "Debug",
     "Python tests.pytest for test_pytest_task_2.test_add_negative.executor": "Run",
@@ -103,7 +90,10 @@
     "Python tests.pytest in task_3.py.executor": "Debug",
     "Python tests.pytest in test_task_3.1.py.executor": "Debug",
     "Python tests.pytest in test_task_3.py.executor": "Run",
+    "Python.CheckoutComplite.executor": "Debug",
     "Python.Danny.executor": "Run",
+    "Python.GoodsPage.executor": "Debug",
+    "Python.YourCartPage.executor": "Debug",
     "Python.conftest.executor": "Run",
     "Python.playwright.executor": "Run",
     "Python.task 2.executor": "Run",
@@ -126,7 +116,7 @@
       <recent name="$PROJECT_DIR$/done Task" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for task4_playwright.test_make_order">
+  <component name="RunManager">
     <configuration name="Danny" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -268,6 +258,23 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Pages/CheckoutComplite.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Pages/GoodsPage.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Pages/YourCartPage.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

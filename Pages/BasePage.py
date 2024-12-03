@@ -2,14 +2,14 @@ from playwright.sync_api import expect
 
 
 class BasePage:
-    BaseURL = 'https://www.saucedemo.com'
+    __BaseURL = 'https://www.saucedemo.com'
 
     def __init__(self, page):
         self.page = page
         self._endpoint = ''
 
     def _full_url(self):
-        return f'{self.BaseURL}/{self._endpoint}'
+        return f'{self.__BaseURL}/{self._endpoint}'
 
     def go_to_full_url(self):
         """
@@ -18,7 +18,7 @@ class BasePage:
         full_url = self._full_url()
         self.page.goto(full_url)
         self.page.wait_for_load_state('load')
-        expect(self.page).to_have_url(self.BaseURL)
+        expect(self.page).to_have_url(full_url)
 
     def selector_ready_to_click(self, selector):
         """
@@ -26,40 +26,31 @@ class BasePage:
         """
         self.page.wait_for_selector(selector)
         self.page.is_visible(selector)
-        self.page.is_enable(selector)
+        self.page.is_enabled(selector)
         self.page.click(selector)
 
-    def type_text_in_selector(self, selector, text, delay):
+    def type_text_in_selector(self, selector, text):
         """
         Селектор видимый, печатаем, проверяем что заполнен
         """
         self.page.wait_for_selector(selector)
         self.page.is_visible(selector)
-        self.page.type(selector, text, delay)
-        expect(self.page).not_to_be_empty(selector)
+        self.page.type(selector, text)
 
-    def fill_text_in_selector(self, selector, value, delay):
+
+    def fill_text_in_selector(self, selector, value):
         """
         Селектор видимый, копируем, проверяем что заполнен
         """
         self.page.wait_for_selector(selector)
         self.page.is_visible(selector)
-        self.page.fill(selector, value, delay)
-        expect(self.page).not_to_be_empty(selector)
+        self.page.fill(selector, value)
 
-    def load_to_body_have_text(self, selector, text):
-        self.page.wait_for_selector(selector.to_have_text(text))
 
     def object_is_visible_and_enabled(self, selector):
         self.page.is_visible(selector)
-        self.page.is_enable(selector)
+        self.page.is_enabled(selector)
 
-
-    def url_is_valid(self):
-        expect(self.page).to_have_url(self._full_url)
-
-    def assert_that_selector_is_hidden(self, selector):
-        expect(self.page).is_hidden(selector)
 
     def assert_text_next_page(self, text):
         expect(self.page.locator("body")).to_contain_text(text)

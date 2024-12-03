@@ -1,4 +1,4 @@
-from Pages import BasePage
+from Pages.BasePage import BasePage
 
 
 class CheckoutComplite(BasePage):
@@ -15,13 +15,13 @@ class CheckoutComplite(BasePage):
         self._endpoint = 'checkout-complete.html'
 
     def check_main_elements(self):
-        self.bject_is_visible_and_enabled(self.CheckoutPageSelector)
-        self.bject_is_visible_and_enabled(self.BackHomeButtonSelector)
+        self.object_is_visible_and_enabled(self.CheckoutPageSelector)
+        self.object_is_visible_and_enabled(self.BackHomeButtonSelector)
 
     def check_burger_and_logout(self):
         self.selector_ready_to_click(self.BurgerMenuButtonSelector)
-        self.bject_is_visible_and_enabled(self.AllItemsInBurgerSelector)
-        self.bject_is_visible_and_enabled(self.AboutInBurgerSelector)
-        self.bject_is_visible_and_enabled(self.ResetAppInBurgerSelector)
+        self.object_is_visible_and_enabled(self.AllItemsInBurgerSelector)
+        self.object_is_visible_and_enabled(self.AboutInBurgerSelector)
+        self.object_is_visible_and_enabled(self.ResetAppInBurgerSelector)
         self.selector_ready_to_click(self.LogoutInBurgerSelector)
-        self.assert_text_next_page(self, 'Login')
+        self.assert_text_next_page('Login')

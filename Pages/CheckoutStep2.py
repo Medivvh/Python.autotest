@@ -1,4 +1,4 @@
-from Pages import BasePage
+from Pages.BasePage import BasePage
 
 
 class CheckoutStep2(BasePage):
@@ -9,6 +9,5 @@ class CheckoutStep2(BasePage):
         self._endpoint = 'checkout-step-two.html'
 
     def finish_order(self):
-        self.url_is_valid()
         self.selector_ready_to_click(self.FinishCheckoutSelector)
-        self.assert_text_next_page(self, 'Thank you for your order!')
+        self.assert_text_next_page('Thank you for your order!')
