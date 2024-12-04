@@ -8,7 +8,6 @@ from faker import Faker
 from constant import HEADERS, BASE_URL
 from playwright.sync_api import sync_playwright
 
-
 faker = Faker()
 FAKER = Faker(locale='en_US')
 
@@ -87,6 +86,7 @@ def get_booking_ids(auth_session):
         assert_that(get_booking_id.status_code).is_equal_to(200) and get_booking_id is not None
         list_of_id = get_booking_id.json()
         return list_of_id
+
     return _get_booking
 
 
@@ -97,5 +97,3 @@ def browser():
     yield browser
     browser.close()
     playwright.stop()
-
-

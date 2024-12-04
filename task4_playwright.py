@@ -1,5 +1,3 @@
-import pytest
-
 from Pages.CheckoutComplite import CheckoutComplite
 from Pages.CheckoutInfoPage import CheckoutInfoPage
 from Pages.CheckoutStep2 import CheckoutStep2
@@ -30,6 +28,7 @@ def test_e2e(browser):
     check_2.finish_order()
     check_executed.check_main_elements()
     check_executed.check_burger_and_logout()
+
 
 def test_negative(browser):
     page = browser.new_page()
