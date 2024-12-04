@@ -6,7 +6,7 @@ from Pages.LoginPage import LoginPage
 from Pages.YourCartPage import YourCartPage
 
 
-def test_make_order(browser):
+def test_e2e(browser):
     page = browser.new_page()
     auth = LoginPage(page)
     goods = GoodsPage(page)
@@ -16,6 +16,7 @@ def test_make_order(browser):
     check_executed = CheckoutComplite(page)
 
     auth.login('standard_user', 'secret_sauce')
+    goods.check_page()
     goods.add_first_good_in_cart()
     goods.add_second_good_in_cart()
     goods.remove_good_from_cart()
@@ -26,3 +27,4 @@ def test_make_order(browser):
     check_2.finish_order()
     check_executed.check_main_elements()
     check_executed.check_burger_and_logout()
+

@@ -7,18 +7,24 @@ class GoodsPage(BasePage):
     FirstGoodRemoveSelector = '#remove-test\.allthethings\(\)-t-shirt-\(red\)'
     ShoppingCartSelector = '#shopping_cart_container > a > span'
     CountOfGoodsInShoppingCart = '.shopping_cart_badge'
+    InventoryDescriptionSelector = '.inventory_item_description'
 
     def __init__(self, page):
         super().__init__(page)
         self._endpoint = 'inventory.html'
 
+    def check_page(self):
+        self.assert_valid_url_on_page()
+        self.check_count_object(self.InventoryDescriptionSelector, 6)
 
     def add_first_good_in_cart(self):
         self.selector_ready_to_click(self.FirstGoodADDSelector)
-
+        self.element_is_hidden(self.FirstGoodADDSelector)
+        self.object_is_visible_and_enabled(self.FirstGoodRemoveSelector)
 
     def add_second_good_in_cart(self):
         self.selector_ready_to_click(self.SecondGoodADDSelector)
+        self.element_is_hidden(self.SecondGoodADDSelector)
 
 
     def remove_good_from_cart(self):

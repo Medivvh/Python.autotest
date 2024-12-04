@@ -25,8 +25,8 @@ class BasePage:
         Кнопка видима, активна. Нажимаем
         """
         self.page.wait_for_selector(selector)
-        self.page.is_visible(selector)
-        self.page.is_enabled(selector)
+        expect(self.page.locator(selector)).to_be_visible()
+        expect(self.page.locator(selector)).to_be_enabled()
         self.page.click(selector)
 
     def type_text_in_selector(self, selector, text):
@@ -37,7 +37,6 @@ class BasePage:
         self.page.is_visible(selector)
         self.page.type(selector, text)
 
-
     def fill_text_in_selector(self, selector, value):
         """
         Селектор видимый, копируем, проверяем что заполнен
@@ -46,11 +45,18 @@ class BasePage:
         self.page.is_visible(selector)
         self.page.fill(selector, value)
 
-
     def object_is_visible_and_enabled(self, selector):
-        self.page.is_visible(selector)
-        self.page.is_enabled(selector)
+        expect(self.page.locator(selector)).to_be_visible()
+        expect(self.page.locator(selector)).to_be_enabled()
 
+    def element_is_hidden(self, selector):
+        expect(self.page.locator(selector)).to_be_hidden()
 
     def assert_text_next_page(self, text):
         expect(self.page.locator("body")).to_contain_text(text)
+
+    def assert_valid_url_on_page(self):
+        expect(self.page).to_have_url(self._full_url())
+
+    def check_count_object(self, selector, count):
+        expect(self.page.locator(selector)).to_have_count(count)
