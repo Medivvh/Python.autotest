@@ -1,5 +1,3 @@
-from select import select
-
 from playwright.sync_api import expect
 
 
