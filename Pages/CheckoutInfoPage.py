@@ -9,7 +9,10 @@ class CheckoutInfoPage(BasePage):
 
     def __init__(self, page):
         super().__init__(page)
-        self._endpoint = 'cart.html'
+        self._endpoint = 'checkout-step-one.html'
+
+    def check_page(self):
+        self.assert_valid_url_on_page()
 
     def place_order(self, name, secondname, postal):
         self.type_text_in_selector(self.FirstNameSelector, name)

@@ -23,6 +23,7 @@ def test_e2e(browser):
     goods.go_to_cart()
     cart.cart_have_good()
     cart.checkout()
+    check_1.check_page()
     check_1.place_order('Andrew', 'Volina', '12441')
     check_2.finish_order()
     check_executed.check_main_elements()

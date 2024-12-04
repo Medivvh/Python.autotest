@@ -15,6 +15,7 @@ class CheckoutComplite(BasePage):
         self._endpoint = 'checkout-complete.html'
 
     def check_main_elements(self):
+        self.assert_valid_url_on_page()
         self.object_is_visible_and_enabled(self.CheckoutPageSelector)
         self.object_is_visible_and_enabled(self.BackHomeButtonSelector)
 

@@ -31,7 +31,7 @@ class BasePage:
 
     def type_text_in_selector(self, selector, text):
         """
-        Селектор видимый, печатаем, проверяем что заполнен
+        Селектор видимый, печатаем
         """
         self.page.wait_for_selector(selector)
         self.page.is_visible(selector)
@@ -39,7 +39,7 @@ class BasePage:
 
     def fill_text_in_selector(self, selector, value):
         """
-        Селектор видимый, копируем, проверяем что заполнен
+        Селектор видимый, заполняем
         """
         self.page.wait_for_selector(selector)
         self.page.is_visible(selector)
@@ -53,6 +53,9 @@ class BasePage:
         expect(self.page.locator(selector)).to_be_hidden()
 
     def assert_text_next_page(self, text):
+        """
+        Проверяем наличия текста в теле страницы
+        """
         expect(self.page.locator("body")).to_contain_text(text)
 
     def assert_valid_url_on_page(self):

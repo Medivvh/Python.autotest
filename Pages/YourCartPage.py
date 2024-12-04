@@ -10,6 +10,7 @@ class YourCartPage(BasePage):
         self._endpoint = 'cart.html'
 
     def cart_have_good(self):
+        self.assert_valid_url_on_page()
         self.assert_text_next_page('T-Shirt')
 
     def checkout(self):
