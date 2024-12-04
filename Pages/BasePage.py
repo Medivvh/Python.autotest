@@ -1,3 +1,5 @@
+from select import select
+
 from playwright.sync_api import expect
 
 
@@ -63,3 +65,6 @@ class BasePage:
 
     def check_count_object(self, selector, count):
         expect(self.page.locator(selector)).to_have_count(count)
+
+    def object_have_attribute(self, selector, name, attribute):
+        expect(self.page.locator(selector)).to_have_attribute(name, attribute)

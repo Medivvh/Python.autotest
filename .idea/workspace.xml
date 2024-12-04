@@ -74,7 +74,8 @@
     "Python tests.Python tests in test_pytest_task_2.py.executor": "Run",
     "Python tests.Python tests in test_task_3.1.py.executor": "Debug",
     "Python tests.Python tests in test_task_3_1.py.executor": "Debug",
-    "Python tests.pytest for task4_playwright.test_make_order.executor": "Debug",
+    "Python tests.pytest for task4_playwright.test_e2e.executor": "Run",
+    "Python tests.pytest for task4_playwright.test_make_order.executor": "Run",
     "Python tests.pytest for task_3.Test_auth_booking.executor": "Run",
     "Python tests.pytest for task_3.Test_auth_booking.test_update_booking.executor": "Debug",
     "Python tests.pytest for test_pytest_task_2.test_add_negative.executor": "Run",
@@ -93,7 +94,8 @@
     "Python.CheckoutComplite.executor": "Debug",
     "Python.Danny.executor": "Run",
     "Python.GoodsPage.executor": "Debug",
-    "Python.YourCartPage.executor": "Debug",
+    "Python.LoginPage.executor": "Run",
+    "Python.YourCartPage.executor": "Run",
     "Python.conftest.executor": "Run",
     "Python.playwright.executor": "Run",
     "Python.task 2.executor": "Run",
@@ -116,7 +118,7 @@
       <recent name="$PROJECT_DIR$/done Task" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.pytest for task4_playwright.test_e2e">
     <configuration name="Danny" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -170,21 +172,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for Task3.test_task_3.Test_negative_booking.test_unavailable_data" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Task3.test_task_3.Test_negative_booking.test_unavailable_data&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for Task3.test_task_3.Test_negative_booking.test_update_zero" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -197,6 +184,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;Task3.test_task_3.Test_negative_booking.test_update_zero&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for task4_playwright.test_e2e" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;task4_playwright.test_e2e&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -219,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for task4_playwright.test_e2e" />
         <item itemvalue="Python tests.pytest for task4_playwright.test_make_order" />
         <item itemvalue="Python tests.Python tests for Task3.test_task_3.Test_negative_booking.test_update_zero" />
         <item itemvalue="Python tests.Python tests for Task3.test_task_3.Test_negative_booking.test_get_booking" />
         <item itemvalue="Python tests.Python tests for Task3.test_task_3.TestBookings" />
-        <item itemvalue="Python tests.Python tests for Task3.test_task_3.Test_negative_booking.test_unavailable_data" />
       </list>
     </recent_temporary>
   </component>
@@ -258,23 +262,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Pages/CheckoutComplite.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Pages/GoodsPage.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Pages/YourCartPage.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
