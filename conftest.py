@@ -5,12 +5,8 @@ import random
 from assertpy import assert_that
 from faker import Faker
 
-
 from constant import HEADERS, BASE_URL
 from playwright.sync_api import sync_playwright
-
-
-
 
 faker = Faker()
 FAKER = Faker(locale='en_US')
@@ -97,11 +93,10 @@ def get_booking_ids(auth_session):
 @pytest.fixture(scope='session')
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=False, slow_mo=1200)
     yield browser
     browser.close()
     playwright.stop()
-
 
 # @pytest.fixture(scope='session')
 # def e2e(browser):

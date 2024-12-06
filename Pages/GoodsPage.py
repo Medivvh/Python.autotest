@@ -16,8 +16,6 @@ class GoodsPage(BasePage):
     ItemPolzunkiSelector = '#item_2_img_link > img'
     ItemRedSwitshotSelector = '#item_3_img_link > img'
 
-    # ImageAttribute = '/static/media/bolt-shirt-1200x1500.c2599ac5.jpg'
-
     def __init__(self, page):
         super().__init__(page)
         self._endpoint = 'inventory.html'
@@ -37,7 +35,6 @@ class GoodsPage(BasePage):
                                    '/static/media/red-onesie-1200x1500.2ec615b2.jpg')
         self.object_have_attribute(self.ItemRedSwitshotSelector, 'src',
                                    '/static/media/red-tatt-1200x1500.30dadef4.jpg')
-
 
     def add_first_good_in_cart(self):
         self.selector_ready_to_click(self.FirstGoodADDSelector)

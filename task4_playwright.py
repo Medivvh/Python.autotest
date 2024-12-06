@@ -11,6 +11,7 @@ test_auth_params = dict(
     argvalues=[1, 2, 3, 4, 5, 6]
 )
 
+
 @pytest.mark.parametrize(**test_auth_params)
 def test_e2e(browser, client):
     page = browser.new_page()
@@ -45,5 +46,3 @@ def test_e2e(browser, client):
     check_2.finish_order()
     check_executed.check_main_elements()
     check_executed.check_burger_and_logout()
-
-
