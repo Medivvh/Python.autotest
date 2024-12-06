@@ -4,16 +4,11 @@ import random
 
 from assertpy import assert_that
 from faker import Faker
-from requests import session
+
 
 from constant import HEADERS, BASE_URL
 from playwright.sync_api import sync_playwright
-from Pages.CheckoutComplite import CheckoutComplite
-from Pages.CheckoutInfoPage import CheckoutInfoPage
-from Pages.CheckoutStep2 import CheckoutStep2
-from Pages.GoodsPage import GoodsPage
-from Pages.LoginPage import LoginPage
-from Pages.YourCartPage import YourCartPage
+
 
 
 
@@ -102,7 +97,7 @@ def get_booking_ids(auth_session):
 @pytest.fixture(scope='session')
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=1000)
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
     yield browser
     browser.close()
     playwright.stop()
