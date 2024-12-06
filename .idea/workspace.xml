@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5c41f6d0-d535-4961-bfc8-09c6a7345d2b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/BasePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/BasePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/GoodsPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/GoodsPage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +123,7 @@
       <recent name="$PROJECT_DIR$/done Task" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for task4_playwright.test_negative">
+  <component name="RunManager" selected="Python tests.pytest for task4_playwright.test_e2e">
     <configuration name="Danny" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -228,8 +230,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for task4_playwright.test_negative" />
         <item itemvalue="Python tests.pytest for task4_playwright.test_e2e" />
+        <item itemvalue="Python tests.pytest for task4_playwright.test_negative" />
         <item itemvalue="Python tests.pytest for task4_playwright.test_make_order" />
         <item itemvalue="Python tests.Python tests for Task3.test_task_3.Test_negative_booking.test_update_zero" />
         <item itemvalue="Python tests.Python tests for Task3.test_task_3.Test_negative_booking.test_get_booking" />

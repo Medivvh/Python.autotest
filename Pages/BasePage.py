@@ -45,6 +45,10 @@ class BasePage:
         self.page.is_visible(selector)
         self.page.fill(selector, value)
 
+    def attribute_is_visible_and_count(self,selector,text):
+        self.page.is_visible(selector)
+        expect(self.page.locator(selector)).to_have_text(text)
+
     def object_is_visible_and_enabled(self, selector):
         expect(self.page.locator(selector)).to_be_visible()
         expect(self.page.locator(selector)).to_be_enabled()
