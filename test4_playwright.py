@@ -5,11 +5,19 @@ from Pages.GoodsPage import GoodsPage
 from Pages.LoginPage import LoginPage
 from Pages.YourCartPage import YourCartPage
 import pytest
+from faker import Faker
+
+faker = Faker()
+FAKER = Faker(locale='en_US')
 
 test_auth_params = dict(
     argnames='client',
     argvalues=[1, 2, 3, 4, 5, 6]
 )
+
+name = faker.first_name()
+secondname = faker.last_name()
+postal = faker.postalcode()
 
 
 @pytest.mark.parametrize(**test_auth_params)
@@ -42,7 +50,7 @@ def test_e2e(browser, client):
     cart.cart_have_good()
     cart.checkout()
     check_1.check_page()
-    check_1.place_order('Andrew', 'Volina', '12441')
+    check_1.place_order(name, secondname, postal)
     check_2.finish_order()
     check_executed.check_main_elements()
     check_executed.check_burger_and_logout()

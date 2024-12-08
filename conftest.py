@@ -93,10 +93,17 @@ def get_booking_ids(auth_session):
 @pytest.fixture(scope='session')
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=1200)
+    browser = playwright.chromium.launch(headless=False, slow_mo=100)
     yield browser
     browser.close()
     playwright.stop()
+
+# @pytest.fixture(scope='session')
+# def generate_name_second_postal():
+#     name = faker.first_name()
+#     secondname = faker.last_name()
+#     postal = faker.postalcode()
+#     return {'name': name, 'secondname': secondname, 'postal': postal}
 
 # @pytest.fixture(scope='session')
 # def e2e(browser):
