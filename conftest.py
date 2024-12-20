@@ -93,38 +93,11 @@ def get_booking_ids(auth_session):
 @pytest.fixture(scope='session')
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=100)
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
     yield browser
     browser.close()
     playwright.stop()
 
-# @pytest.fixture(scope='session')
-# def generate_name_second_postal():
-#     name = faker.first_name()
-#     secondname = faker.last_name()
-#     postal = faker.postalcode()
-#     return {'name': name, 'secondname': secondname, 'postal': postal}
-
-# @pytest.fixture(scope='session')
-# def e2e(browser):
-#     page = browser.new_page()
-#     auth = LoginPage(page)
-#     goods = GoodsPage(page)
-#     cart = YourCartPage(page)
-#     check_1 = CheckoutInfoPage(page)
-#     check_2 = CheckoutStep2(page)
-#     check_executed = CheckoutComplite(page)
+# @pytest.fixture()
+# def check_page():
 #
-#     auth.login('standard_user', 'secret_sauce')
-#     goods.check_page()
-#     goods.add_first_good_in_cart()
-#     goods.add_second_good_in_cart()
-#     goods.remove_good_from_cart()
-#     goods.go_to_cart()
-#     cart.cart_have_good()
-#     cart.checkout()
-#     check_1.check_page()
-#     check_1.place_order('Andrew', 'Volina', '12441')
-#     check_2.finish_order()
-#     check_executed.check_main_elements()
-#     check_executed.check_burger_and_logout()

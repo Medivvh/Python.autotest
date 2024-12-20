@@ -46,12 +46,17 @@ class BasePage:
         self.page.fill(selector, value)
 
     def attribute_is_visible_and_count(self, selector, text):
-        self.page.is_visible(selector)
+        self.page.wait_for_selector(selector)
         expect(self.page.locator(selector)).to_have_text(text)
+
 
     def object_is_visible_and_enabled(self, selector):
         expect(self.page.locator(selector)).to_be_visible()
         expect(self.page.locator(selector)).to_be_enabled()
+
+    def selector_have_text(self, selector, text):
+        self.page.is_visible(selector)
+        expect(self.page.locator(selector)).to_contain_text(text)
 
     def element_is_hidden(self, selector):
         expect(self.page.locator(selector)).to_be_hidden()
@@ -61,6 +66,9 @@ class BasePage:
         Проверяем наличия текста в теле страницы
         """
         expect(self.page.locator("body")).to_contain_text(text)
+
+    # def find_element_by_text(self, text):
+    #     self.page.get_by_text(text)
 
     def assert_valid_url_on_page(self):
         expect(self.page).to_have_url(self._full_url())
