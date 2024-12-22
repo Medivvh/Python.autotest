@@ -93,11 +93,8 @@ def get_booking_ids(auth_session):
 @pytest.fixture(scope='session')
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=True, slow_mo=50)
     yield browser
     browser.close()
     playwright.stop()
 
-# @pytest.fixture()
-# def check_page():
-#

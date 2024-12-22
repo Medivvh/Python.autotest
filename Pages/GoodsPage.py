@@ -65,6 +65,8 @@ class GoodsPage(BasePage):
                                'div.inventory_item_description > div.pricebar > div')
     RED_SWITSHOT_PRICE_SELECTOR = ('#inventory_container > div > div:nth-child(6) > '
                                    'div.inventory_item_description > div.pricebar > div')
+    #Cart
+    CART_SELECTOR = '#shopping_cart_container > a'
 
     def __init__(self, page):
         super().__init__(page)
@@ -155,4 +157,11 @@ class GoodsPage(BasePage):
 
     def go_to_cart(self):
         self.selector_ready_to_click(self.ShoppingCartSelector)
+        self.assert_text_next_page('Your Cart')
+
+    def add_random_good_in_cart(self):
+        selectors = (self.REDSWITSHOT_ADDSelector, self.BAG_ADDSelector, self.HOODIE_ADDSelector,
+                     self.POLZUNKI_ADDSelector, self.T_SHIRT_ADDSelector, self.BYCICLE_ADDSelector)
+        self.selector_ready_to_click(random.choice(selectors))
+        self.selector_ready_to_click(self.CART_SELECTOR)
         self.assert_text_next_page('Your Cart')

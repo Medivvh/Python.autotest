@@ -49,7 +49,6 @@ class BasePage:
         self.page.wait_for_selector(selector)
         expect(self.page.locator(selector)).to_have_text(text)
 
-
     def object_is_visible_and_enabled(self, selector):
         expect(self.page.locator(selector)).to_be_visible()
         expect(self.page.locator(selector)).to_be_enabled()
@@ -67,8 +66,8 @@ class BasePage:
         """
         expect(self.page.locator("body")).to_contain_text(text)
 
-    # def find_element_by_text(self, text):
-    #     self.page.get_by_text(text)
+    def find_element_by_role_and_text(self, role, text):
+        self.page.get_by_role(role, text)
 
     def assert_valid_url_on_page(self):
         expect(self.page).to_have_url(self._full_url())

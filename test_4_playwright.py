@@ -50,12 +50,14 @@ def test_e2e(browser, client):
     check_executed.check_main_elements()
     check_executed.check_burger_and_logout()
 
+
 @pytest.mark.parametrize(**test_auth_params)
 def test_auth(browser, client):
     page = browser.new_page()
     auth = LoginPage(page)
     auth.login(client, 'secret_sauce')
     pass
+
 
 @pytest.mark.parametrize(**test_auth_params)
 def test_check_goods(browser, client):
@@ -75,6 +77,7 @@ def test_add_goods(browser, client):
     goods.take_goods_in_cart()
     goods.remove_goods()
 
+
 @pytest.mark.parametrize(**test_auth_params)
 def test_check_count_cart(browser, client):
     page = browser.new_page()
@@ -83,3 +86,26 @@ def test_check_count_cart(browser, client):
     goods = GoodsPage(page)
     goods.add_random_good_in_cart_and_check_cart()
 
+
+@pytest.mark.parametrize(**test_auth_params)
+def test_check_goods_cart(browser, client):
+    page = browser.new_page()
+    auth = LoginPage(page)
+    auth.login(client, 'secret_sauce')
+    goods = GoodsPage(page)
+    goods.add_random_good_in_cart()
+    cart = YourCartPage(page)
+    cart.cart_have_object()
+    cart.checkout()
+
+
+@pytest.mark.parametrize(**test_auth_params)
+def test_empty_cart(browser, client):
+    page = browser.new_page()
+    auth = LoginPage(page)
+    auth.login(client, 'secret_sauce')
+    goods = GoodsPage(page)
+    goods.add_random_good_in_cart_and_check_cart()
+    cart = YourCartPage(page)
+    cart.empty_cart()
+    cart.checkout()
